@@ -37,7 +37,7 @@
 .contentLogo a {
   font-weight: bold;
   color: #121212;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 .nav {
@@ -50,12 +50,11 @@
     display: flex;
     align-items: center;
     padding: 8px 14px;
-    transition: all 0.7s;
+    transition: all 0.3s;
   }
 
   a:hover {
     font-weight: bold;
-    transform: scale(1.09);
   }
 }
 
