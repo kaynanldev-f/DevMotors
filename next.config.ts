@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   reactCompiler: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "imgix.cosmicjs.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
