@@ -23,28 +23,23 @@ export interface homeTypes {
       };
       services: {
         heading: string;
-        service: [
-          {
-            img_service: {
-              url: string;
-              imgix_url: string;
-            };
-            description: string;
-          },
-          {
-            img_service: {
-              url: string;
-              imgix_url: string;
-            };
-            description: string;
-          },
-        ];
+        service: {
+          img_service: {
+            url: string;
+            imgix_url: string;
+          };
+          description: string;
+        }[];
       };
       contact: {
         email: string;
         phone: string;
         hours: string;
         andress: string;
+      };
+      cta_contact: {
+        cta_contact_heading: string;
+        cta_url: string;
       };
     };
   };

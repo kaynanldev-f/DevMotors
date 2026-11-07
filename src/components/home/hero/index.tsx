@@ -1,22 +1,30 @@
+import { ReactNode } from "react";
 import styles from "./styles.module.scss";
 import Image from "next/image";
+
 interface HeroProps {
   heading: string;
-  cta: string;
-  url: string;
-  banner: string;
-  icon?: React.ReactNode;
+  buttonUrl: string;
+  buttonTitle: string;
+  bannerUrl: string;
+  icon: ReactNode;
 }
 
-export default function Hero({ heading, cta, url, banner, icon }: HeroProps) {
+export function Hero({
+  heading,
+  bannerUrl,
+  buttonTitle,
+  buttonUrl,
+  icon,
+}: HeroProps) {
   return (
     <main className={styles.main}>
       <div className={styles.containerHero}>
         <h1 className={styles.title}>{heading}</h1>
 
-        <a target="_blank" href={url} className={styles.link}>
+        <a target="_blank" href={buttonUrl} className={styles.link}>
           {icon}
-          {cta}
+          {buttonTitle}
         </a>
       </div>
 
@@ -24,7 +32,7 @@ export default function Hero({ heading, cta, url, banner, icon }: HeroProps) {
         <Image
           className={styles.banner}
           alt={heading}
-          src={banner}
+          src={bannerUrl}
           priority={true}
           quality={100}
           fill={true}

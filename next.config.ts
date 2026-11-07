@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "imgix.cosmicjs.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.cosmicjs.com",
+      },
     ],
   },
 };
