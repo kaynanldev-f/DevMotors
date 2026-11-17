@@ -1,15 +1,17 @@
 import { Submenu } from "@/components/home/submenu";
-import { getData } from "@/utils/actions/getDataAction";
+import { getData, getSubmenuData } from "@/utils/actions/getDataAction";
 import { homeTypes } from "@/utils/types/homeType";
 import { Hero } from "@/components/home/hero";
 import { Phone } from "lucide-react";
 import { Services } from "@/components/home/services";
 import { Container } from "@/components/container";
 import { Footer } from "@/components/home/footer";
+import { submenuTypes } from "@/utils/types/submenuType";
 
 export default async function Home() {
   const { object }: homeTypes = await getData();
-  console.log(object);
+  const { objects }: submenuTypes = await getSubmenuData();
+  console.log(objects);
 
   return (
     <main>
