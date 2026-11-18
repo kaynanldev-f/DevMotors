@@ -1,5 +1,9 @@
 import { Submenu } from "@/components/home/submenu";
-import { getData, getSubmenuData } from "@/utils/actions/getDataAction";
+import {
+  getData,
+  getSubmenuData,
+  getPageSlug,
+} from "@/utils/actions/getDataAction";
 import { homeTypes } from "@/utils/types/homeType";
 import { Hero } from "@/components/home/hero";
 import { Phone } from "lucide-react";
@@ -11,11 +15,13 @@ import { submenuTypes } from "@/utils/types/submenuType";
 export default async function Home() {
   const { object }: homeTypes = await getData();
   const { objects }: submenuTypes = await getSubmenuData();
+  const pageSlug = await getPageSlug("troca-de-oleo");
   console.log(objects);
+  console.log(pageSlug);
 
   return (
     <main>
-      <Submenu />
+      <Submenu menu={objects} />
 
       <Hero
         heading={object.metadata.hero.heading}

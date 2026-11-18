@@ -4,10 +4,14 @@ import Link from "next/link";
 import styles from "./styles.module.scss";
 
 import { X, Menu } from "lucide-react";
+import { submenuTypes } from "@/utils/types/submenuType";
 
-export function Submenu() {
+interface SubmenuProps {
+  menu: submenuTypes["objects"];
+}
+export function Submenu({ menu }: SubmenuProps) {
   const [isOpen, setIsOpen] = useState(false);
-
+  console.log(menu);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
@@ -38,12 +42,11 @@ export function Submenu() {
           </button>
         )}
 
-        <li>
-          <Link href="/post/pagina-1">Pagina 1</Link>
-        </li>
-        <li>
-          <Link href="/post/pagina-2">Pagina 2</Link>
-        </li>
+        {menu.map((item) => (
+          <li key={item.slug}>
+            <Link href={`post/${item.slug}`}>{item.title}</Link>
+          </li>
+        ))}
       </ul>
     </section>
   );
