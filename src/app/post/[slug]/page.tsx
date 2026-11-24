@@ -11,6 +11,32 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  const data: PostProps = await getPageSlug(slug);
+  const post = data.metadata;
+
+  try {
+    return {
+      title: `Dev Motor - ${slug}`,
+      description: `Confira o post "${slug}" no Dev Motor. ${post.about.description}`,
+      keywords: [
+        "dev motor",
+        "oficina de carros",
+        "mecânica",
+        "carros",
+        "oficina mecânica",
+      ],
+      robots: {
+        index: true,
+        follow: true,
+      },
+    };
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+  }
+}
+
 export default function Page({ params }: PageProps) {
   return (
     <Suspense fallback={<div>Carregando post...</div>}>
